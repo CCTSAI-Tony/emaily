@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+
 const keys = require("./config/keys");
 require("./models/User");
 require("./services/passport"); //只要執行這個文件, 這個require 不會return anything, passport.js 沒有export任何東西, 所以不用assign a variable
@@ -10,7 +11,7 @@ require("./services/passport"); //只要執行這個文件, 這個require 不會
 
 mongoose.connect(keys.mongoURI);
 const app = express();
-app.use(bodyParser.json());
+
 app.use(
   //pass in to middleware to modefy request, 在這裡就是建立/extract cookie, passport 也是一個middleware
   cookieSession({
