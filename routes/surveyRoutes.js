@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const Path = require("path-parser");
+const { Path } = require("path-parser");
 const { URL } = require("url"); //default module in node.js, extract URL func
 const mongoose = require("mongoose");
 const requireLogin = require("../middlewares/requireLogin");
@@ -30,7 +30,7 @@ module.exports = (app) => {
     const p = new Path("/api/surveys/:surveyId/:choice"); //path-parser to match surveyId & choice using wildcard :surveyId/:choice
     //match would be null or a object
     //req.body is a event list
-    _.chain(req.body) //chain all the events => 最大功能是chain 不同的lodash methods 減少中間變數
+    events = _.chain(req.body) //chain all the events => 最大功能是chain 不同的lodash methods 減少中間變數
       .map(({ email, url }) => {
         //extract email & url from the event
         const match = p.test(new URL(url).pathname); //new URL(url).pathname 把url:http:fdeda/survayid/yes => survayid/yes 去掉domain
@@ -58,7 +58,7 @@ module.exports = (app) => {
         ).exec();
       }) //close .map
       .value(); //  _.chain in the end call value() to return newly process array, 不過這裡我們不需要此return 值, 只需要chain的過程
-
+    console.log(events);
     res.send({}); //回應sendGrild 空白object
     //注意, 整個過程不用async 是因為我們不需回傳有意義的東西給sengrid, 因此不需等database exec完畢, 就可以res.send({})
     //不過記得任何有關db的操作都是async
