@@ -1,6 +1,8 @@
-const keys = require('../../config/keys');
+const keys = require("../../config/keys");
 
-module.exports = survey => {
+//export a arrow func, node.js func 可以輸出html syntax string
+module.exports = (survey) => {
+  //use `` to enclose html string
   return `
     <html>
       <body>

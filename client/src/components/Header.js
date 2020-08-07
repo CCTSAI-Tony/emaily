@@ -3,6 +3,10 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Payments from "./Payments";
 
+//直接繼承Component的 constructor
+//row 22, return [] => array of elements => use in Payments => cause in the render() it will be contained within <ul >
+//set keys for elements, can use random number cause the array doesn't will change over time
+//this.props.auth => represemts user model information
 class Header extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -28,9 +32,7 @@ class Header extends Component {
         ];
     }
   }
-  //return [] => array of elements => use in Payments => cause in the render() it will be contained within <ul >
-  //set keys for elements, can use random number cause the array doesn't will change over time
-  //this.props.auth => represemts user model information
+
   render() {
     return (
       <nav>

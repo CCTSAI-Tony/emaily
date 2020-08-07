@@ -35,5 +35,5 @@ class App extends Component {
 }
 
 export default connect(null, actions)(App);
-// BrowserRouter => react router configuration
+// BrowserRouter => react router configuration => deal with  http request via react.app router => not refresh the page just navigate pages inside
 //import actions means assign actions as props in app component

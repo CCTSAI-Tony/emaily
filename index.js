@@ -2,9 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser"); //body-parser 把request 的data  解json 放進req.body
 const keys = require("./config/keys");
-require("./models/User");
+require("./models/User"); //只要執行這個文件, database 會建立此model class
+require("./models/Survey");
 require("./services/passport"); //只要執行這個文件, 這個require 不會return anything, passport.js 沒有export任何東西, 所以不用assign a variable
 // const authRoutes = require("./routes/authRoutes"); //authRoutes is a func
 // authRoutes(app); //執行 "./routes/authRoutes"
@@ -31,6 +32,7 @@ app.use(passport.session()); //tell passport use cookie
 
 require("./routes/authRoutes")(app); //精簡版 執行./routes/authRoutes" func
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 //cause in production, no more react server, it be included in express server, so we need to do some settings
 if (process.env.NODE_ENV === "production") {

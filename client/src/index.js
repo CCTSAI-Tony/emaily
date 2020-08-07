@@ -10,7 +10,8 @@ import reducers from "./reducers"; //import reducers 是指reducers 整個資料
 
 // Development only axios helpers!
 import axios from "axios";
-window.axios = axios;
+window.axios = axios; //put axios to window
+//testing with console in react app to test the backend route to avoid cookie unable use issue
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 //{} initial states of this applications
