@@ -9,10 +9,12 @@ I'm happy to accept more configurability and features. PR welcome! What you see 
 
 ## User Interfaces
 
-Main site - login
+#### Main site - login
+
 <img src="https://github.com/CCTSAI-Tony/emaily/blob/master/index.png" width="532">
 
-Payment system
+#### Payment system
+
 <img src="https://github.com/CCTSAI-Tony/emaily/blob/master/payment.png" width="532">
 
 ## Install
